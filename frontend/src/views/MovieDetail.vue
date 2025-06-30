@@ -2,7 +2,7 @@
   <v-container v-if="movie">
     <h2>{{ movie.title }}</h2>
     <MovieForm :movie="movie" @update="saveEdit" />
-    <p>Note moyenne : {{ movie.avg_rating }}</p>
+    <p>Note moyenne : {{ movie.average_grade }}</p>
     <ul>
       <li v-for="actor in movie.actors" :key="actor.id">
         {{ actor.first_name }} {{ actor.last_name }}
