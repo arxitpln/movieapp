@@ -13,26 +13,26 @@
 </template>
 
 <script setup>
-import { useMovieStore } from '../stores/movieStore'
-import { onMounted, computed } from 'vue'
-import { useRoute } from 'vue-router'
-import MovieForm from '../components/MovieForm.vue'
-import ReviewForm from '../components/ReviewForm.vue'
+import { useMovieStore } from '../stores/movieStore';
+import { onMounted, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import MovieForm from '../components/MovieForm.vue';
+import ReviewForm from '../components/ReviewForm.vue';
 
-const store = useMovieStore()
-const route = useRoute()
+const store = useMovieStore();
+const route = useRoute();
 
 onMounted(() => {
-  store.fetchMovie(route.params.id)
-})
+  store.fetchMovie(route.params.id);
+});
 
-const movie = computed(() => store.selectedMovie)
+const movie = computed(() => store.selectedMovie);
 
 const saveEdit = (data) => {
-  store.updateMovie(route.params.id, data)
-}
+  store.updateMovie(parseInt(route.params.id), data);
+};
 
 const addReview = (review) => {
-  store.addReview(route.params.id, review)
-}
+  store.addReview(parseInt(route.params.id), review);
+};
 </script>

@@ -6,12 +6,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-const grade = ref(3)
-const emit = defineEmits(['submit'])
+import { ref } from 'vue';
+const grade = ref(3);
+const emit = defineEmits(['submit']);
 
 function submit() {
-  emit('submit', { grade: grade.value })
-  grade.value = 3
-}
+  emit('submit', { grade: grade.value });
+  grade.value = 3;
+};
 </script>

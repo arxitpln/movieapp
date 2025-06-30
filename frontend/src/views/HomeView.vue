@@ -17,18 +17,18 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
-import { useMovieStore } from '../stores/movieStore'
-import { MOVIES_PER_PAGE } from '@/config'
-import MovieCard from '../components/MovieCard.vue'
+import { ref, watch } from 'vue';
+import { useMovieStore } from '../stores/movieStore';
+import { MOVIES_PER_PAGE } from '@/config';
+import MovieCard from '../components/MovieCard.vue';
 
-const movieStore = useMovieStore()
-const currentPage = ref(movieStore.page)
+const movieStore = useMovieStore();
+const currentPage = ref(movieStore.page);
 
 const changePage = (page) => {
-  movieStore.fetchMovies(page)
+  movieStore.fetchMovies(page);
 }
 
-watch(currentPage, changePage)
-movieStore.fetchMovies()
+watch(currentPage, changePage);
+movieStore.fetchMovies(currentPage.value);
 </script>

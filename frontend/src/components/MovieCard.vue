@@ -8,5 +8,5 @@
 </template>
 
 <script setup>
-defineProps(['movie'])
+defineProps(['movie']);
 </script>
