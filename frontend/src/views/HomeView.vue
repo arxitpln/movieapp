@@ -10,7 +10,7 @@
     </v-row>
     <v-pagination
       v-model="currentPage"
-      :length="Math.ceil(movieStore.count / 5)"
+      :length="Math.ceil(movieStore.count / MOVIES_PER_PAGE)"
       @input="changePage"
     />
   </v-container>
@@ -19,6 +19,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useMovieStore } from '../stores/movieStore'
+import { MOVIES_PER_PAGE } from '@/config'
 import MovieCard from '../components/MovieCard.vue'
 
 const movieStore = useMovieStore()
