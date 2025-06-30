@@ -7,14 +7,15 @@ services:
       - "5173:5173"
     # volumes:
     #   - ./frontend:/app
-    environment:
-      - VITE_API_URL=http://backend:8000/api
+    env_file:
+      # .env.dev
+      .env.prod
 
   backend:
     build: ./backend
     command: >
       sh -c "python manage.py migrate &&
-        python seed.py &&
+        python populate_database.py &&
         python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./backend:/app
